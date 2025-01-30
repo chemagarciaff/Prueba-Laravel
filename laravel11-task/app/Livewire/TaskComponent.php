@@ -28,10 +28,26 @@ class TaskComponent extends Component
         $this->description = '';
     }
     
-    public function createTask()
+    public function openCreateModal()
     {
         $this->clearFields();
         $this->modal = true;
+    }
+    
+    public function closeCreateModal()
+    {
+        $this->clearFields();
+        $this->modal = false;
+    }
+
+    public function createTask ()  {
+        $newtask = new Task();
+        $newtask->title = $this->title;
+        $newtask->description = $this->description;
+        $newtask->user_id = auth()->user()->id;
+        $newtask->save();
+        $this->clearFields();
+        $this->modal = false;
     }
     
 
