@@ -1,4 +1,6 @@
 <!-- ====== Table Section Start -->
+
+<!-- Wire:poll -> enviar solicitudes a intervalos regulares en busca de actualizaciones -->
 <section class="bg-white " wire:poll="renderAllTasks">
     <div class="container" >
 
@@ -107,7 +109,7 @@
                                     <button wire:click="openCreateModal({{ $task }})" class="px-4 py-2 rounded-md text-white " style="background-color: #e8b32e">
                                         Editar
                                     </button>
-                                    <button  class=" px-4 py-2 rounded-md text-white " style="background-color: #B91C1C">
+                                    <button  class=" px-4 py-2 rounded-md text-white " style="background-color: #B91C1C"  wire:click="deleteTask({{ $task }})" wire:confirm="¿Seguro que quieres eliminar la tarea?">
                                         Borrar
                                     </button>
 

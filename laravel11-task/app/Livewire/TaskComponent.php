@@ -20,6 +20,7 @@ class TaskComponent extends Component
     public $permiso;
     public $modalShare = false;
 
+    
     public function mount()
     {
         $this->tasks = $this->getTasks()->sortByDesc('id');
@@ -83,6 +84,11 @@ class TaskComponent extends Component
         $this->tasks = $this->getTasks()->sortByDesc('id');
     }
    
+    public function deleteTask(Task $task){
+        $task->delete();
+        $this->tasks = $this->getTasks()->sortByDesc('id');
+    }
+    
 
 
 }
