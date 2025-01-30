@@ -14,7 +14,7 @@ class TaskComponent extends Component
 
     public function mount()
     {
-        $this->tasks = Task::where('user_id', auth()->id)->get();
+        $this->tasks = Task::where('user_id', auth()->user()->id)->get();
     }
     
     public function render()
@@ -31,12 +31,9 @@ class TaskComponent extends Component
     public function createTask()
     {
         $this->clearFields();
-        $this->modal = false;
-        $task = new Task();
-        $task->title = $this->title;
-        $task->description = $this->description;
-        // $task->user_id = auth()->user()->id;
+        $this->modal = true;
     }
+    
 
 
     //Aqui van todos los metodos necesarios como por ejemplo los eventos asociados a los botones del task component
