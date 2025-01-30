@@ -15,8 +15,8 @@ class TaskSeeder extends Seeder
     {
         $task = new Task();
         $task->title = 'Task 1';
-        $task->description = 'This is the first task';
-        $task->user_id = 2;
+        $task->description = 'This is the first task for user 1';
+        $task->user_id = 1;
         $task->save();
     }
 }
