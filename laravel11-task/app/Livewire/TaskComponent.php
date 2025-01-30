@@ -16,7 +16,6 @@ class TaskComponent extends Component
     public $modal = false;
     public $users = [];
     public $user_id;
-    public $permiso;
     public $modalShare = false;
 
   /**
@@ -77,7 +76,7 @@ private function clearFields()
  * @param \App\Models\Task|null $task
  * @return void
  */
-public function openCreateModal(Task $task = null)
+public function openModal(Task $task = null)
 {
 
     if ($task) {

@@ -3,59 +3,25 @@
 <!-- Wire:poll -> enviar solicitudes a intervalos regulares en busca de actualizaciones -->
 <section class="bg-white " wire:poll="renderAllTasks">
     <div class="container">
-
         <div class="flex flex-wrap -mx-4">
             <div class="w-full px-4">
                 <div class="max-w-full overflow-x-auto relative flex flex-col gap-8">
-                    <button class="bg-purple-800 border border-700-black text-gray px-4 py-2 rounded-md hover:bg-purple-700 my-6 mb-8 mx-auto relative left-0" wire:click="openCreateModal" style="border: 2px solid #e8b32e">
+
+                    <button class="bg-purple-800 border border-700-black text-gray px-4 py-2 rounded-md hover:bg-purple-700 my-6 mb-8 mx-auto relative left-0" wire:click="openModal" style="border: 2px solid #e8b32e">
                         Nueva Tarea
                     </button>
+
                     <table class="table-auto w-full">
                         <thead>
-
                             <tr class="bg-[#ea832e] text-center">
                                 <th
-                                    class="
-                            w-1/6
-                            min-w-[160px]
-                            text-lg
-                            font-semibold
-                            text-white
-                            py-4
-                            lg:py-7
-                            px-3
-                            lg:px-4
-                            border-l border-transparent
-                            ">
-                                    Titulo
+                                    class="w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 border-l border-transparent">Titulo
                                 </th>
                                 <th
-                                    class="
-                            w-1/6
-                            min-w-[160px]
-                            text-lg
-                            font-semibold
-                            text-white
-                            py-4
-                            lg:py-7
-                            px-3
-                            lg:px-4
-                            ">
-                                    Descripcion
+                                    class="n-w-[w-1/6 mi160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 border-l border-transparent"> Descripcion
                                 </th>
                                 <th
-                                    class="
-                            w-1/6
-                            min-w-[160px]
-                            text-lg
-                            font-semibold
-                            text-white
-                            py-4
-                            lg:py-7
-                            px-3
-                            lg:px-4
-                            ">
-                                    Acciones
+                                    class="n-w-[w-1/6 mi160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 border-l border-transparent"> Acciones
                                 </th>
 
                             </tr>
@@ -64,43 +30,18 @@
                             @foreach ($tasks as $task)
                             <tr class="border border-black">
                                 <td
-                                    class="
-                            text-center text-dark
-                            font-medium
-                            text-base
-                            py-5
-                            px-2
-                            bg-[#F3F6FF]
-                            border-b border-l border-[#E8E8E8]
-                            ">
+                                class="text-center text-dark font-medium text-base py-5 px-2 bg-[#F3F6FF] border-b border-l border-[#E8E8E8]">
                                     {{ $task->title }}
-
                                 </td>
                                 <td
-                                    class="
-                            text-center text-dark
-                            font-medium
-                            text-base
-                            py-5
-                            px-2
-                            bg-white
-                            border-b border-[#E8E8E8]
-                            ">
+                                    class="text-center text-dark font-medium text-base py-5 px-2 bg-white border-b border-[#E8E8E8]">
                                     {{ $task->description }}
                                 </td>
                                 <td
-                                    class="
-                            text-center text-dark
-                            font-medium
-                            text-base
-                            py-5
-                            px-2
-                            bg-[#F3F6FF]
-                            border-b border-[#E8E8E8]
-                            ">
-                                    @if( (isset($task->pivot) && $task->pivot->permission == 'edit') ||(auth()->user()->id == $task->user_id))
+                                    class="text-center text-dark font-medium text-base py-5 px-2 bg-[#F3F6FF] border-b border-[#E8E8E8]">
+
                                     <div class="flex flex-row justify-center gap-4">
-                                        <button wire:click="openCreateModal({{ $task }})" class="px-4 py-2 rounded-md text-white " style="background-color: #e8b32e">
+                                        <button wire:click="openModal({{ $task }})" class="px-4 py-2 rounded-md text-white " style="background-color: #e8b32e">
                                             Editar
                                         </button>
                                         <button class=" px-4 py-2 rounded-md text-white " style="background-color: #B91C1C" wire:click="deleteTask({{ $task }})" wire:confirm="¿Seguro que quieres eliminar la tarea?">
@@ -108,16 +49,12 @@
                                         </button>
 
                                     </div>
-
-                                    @endif
                                 </td>
-
                             </tr>
-
                             @endforeach
-
                         </tbody>
                     </table>
+                    
                 </div>
             </div>
         </div>
